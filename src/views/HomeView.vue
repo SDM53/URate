@@ -182,7 +182,7 @@
       <RouterLink
         to="/"
         class="font-medium text-gray-900 no-underline"
-        >TierShare</RouterLink
+        >URate</RouterLink
       >
       <div class="flex items-center gap-4">
         <RouterLink
