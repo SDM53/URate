@@ -1,0 +1,149 @@
+{
+  "id": "p0001",
+  "title": "Best Mass Effect companions",
+  "description": "Every squadmate across the trilogy ranked by loyalty, combat usefulness, and banter quality.",
+  "authorName": "Admin",
+  "tags": ["Gaming", "Mass Effect", "RPG"],
+  "views": 3346,
+  "rating": 4.8,
+  "ratingCount": 43,
+  "ratingTotal": 205,
+  "coverImage": "https://d1lss44hh2trtw.cloudfront.net/resize?type=webp&url=https%3A%2F%2Fshacknews-www.s3.amazonaws.com%2Fassets%2Farticle%2F2021%2F05%2F05%2Fmass-effect-legendary-editions-website-now-lets-you-create-your-own-cover-art_feature.jpg&width=1032&sign=NkwTUastu1zKOGmhN-ie0_LCP_E1qVdw0vvr3Dpdt_0",
+  "tiers": {
+    "S": [
+      {
+        "name": "Tali",
+        "image": "https://imgur.com/6S280bM.png"
+      },
+      {
+        "name": "Garrus",
+        "image": "https://imgur.com/6Ut5R1j.png"
+      },
+      {
+        "name": "Vetra",
+        "image": "https://imgur.com/zAB47wJ.png"
+      }
+    ],
+    "A": [
+      {
+        "name": "Mordin",
+        "image": "https://imgur.com/S2sOgz9.png"
+      },
+      {
+        "name": "Legion",
+        "image": "https://imgur.com/ScHsfWA.png"
+      },
+      {
+        "name": "Liara",
+        "image": null
+      },
+      {
+        "name": "Miranda",
+        "image": null
+      }
+    ],
+    "B": [
+      {
+        "name": "Wrex",
+        "image": null
+      },
+      {
+        "name": "Thane",
+        "image": "https://imgur.com/lmAGaQo.png"
+      },
+      {
+        "name": "Grunt",
+        "image": null
+      },
+      {
+        "name": "Nyreen",
+        "image": null
+      }
+    ],
+    "C": [
+      {
+        "name": "Jack",
+        "image": null
+      },
+      {
+        "name": "Kasumi",
+        "image": null
+      },
+      {
+        "name": "Aria",
+        "image": null
+      }
+    ],
+    "D": [
+      {
+        "name": "Zaeed",
+        "image": null
+      },
+      {
+        "name": "Javik",
+        "image": "https://imgur.com/yQqsMaF.png"
+      },
+      {
+        "name": "EDI",
+        "image": null
+      },
+      {
+        "name": "James",
+        "image": null
+      },
+      {
+        "name": "Peebee",
+        "image": null
+      },
+      {
+        "name": "Drack",
+        "image": "https://imgur.com/k93lyaz.png"
+      }
+    ],
+    "F": [
+      {
+        "name": "Jaal",
+        "image": null
+      },
+      {
+        "name": "Jacob",
+        "image": null
+      },
+      {
+        "name": "Samara",
+        "image": null
+      },
+      {
+        "name": "Morinth",
+        "image": null
+      },
+      {
+        "name": "Liam",
+        "image": null
+      },
+      {
+        "name": "Cora",
+        "image": null
+      },
+      {
+        "name": "Kaidan",
+        "image": null
+      },
+      {
+        "name": "Ashley",
+        "image": null
+      }
+    ]
+  },
+  "comments": [
+    {
+      "id": "c0001",
+      "authorName": "Commander_Shepard",
+      "text": "Garrus deserves S tier without question. The loyalty, the sniper skills, the banter...there's no better squadmate in the trilogy. Tali is a close second though.",
+      "likes": 1,
+      "dislikes": 0,
+      "createdAt": "2024-01-05T10:00:00.000Z"
+    }
+  ],
+  "createdAt": "2024-01-01T00:00:00.000Z"
+}

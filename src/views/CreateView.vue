@@ -1,7 +1,9 @@
 <script setup>
+  // ─────────────────────────────────────────────
+  // IMPORTS
+  // ─────────────────────────────────────────────
   import { ref, computed, watch, onMounted } from 'vue';
   import { useRouter } from 'vue-router';
-  import { postsData } from '../data/posts.js';
 
   const router = useRouter();
 
@@ -30,19 +32,50 @@
     },
   });
 
-  const existingTags = computed(() => {
-    const tagSet = new Set();
-    postsData.forEach((post) => post.tags.forEach((t) => tagSet.add(t)));
-    return [...tagSet];
-  });
-
-  const customTagInput = ref('');
+  const existingTags = ref([]);
   const showModal = ref(false);
   const modalTier = ref('S');
   const modalItemName = ref('');
   const modalItemImage = ref('');
   const draggedIndex = ref(null);
   const draggedTier = ref(null);
+  const customTagInput = ref('');
+
+  onMounted(async () => {
+    try {
+      const res = await fetch('http://localhost:3001/api/posts');
+      const posts = await res.json();
+      const tagSet = new Set();
+      posts.forEach((post) => post.tags.forEach((t) => tagSet.add(t)));
+      existingTags.value = [...tagSet];
+    } catch (err) {
+      console.error('Failed to load tags from backend:', err);
+    }
+
+    const saved = localStorage.getItem('createFormData');
+    if (saved) {
+      formData.value = JSON.parse(saved);
+    }
+  });
+
+  // ─────────────────────────────────────────────
+  // LOCALSTORAGE PERSISTENCE
+  // Watches formData for any changes and saves to
+  // localStorage automatically. This means if the
+  // user navigates to preview and comes back, all
+  // their inputs are still there.
+  // ─────────────────────────────────────────────
+  watch(
+    formData,
+    (newVal) => {
+      localStorage.setItem('createFormData', JSON.stringify(newVal));
+    },
+    { deep: true },
+  );
+
+  // ─────────────────────────────────────────────
+  // HELPERS
+  // ─────────────────────────────────────────────
 
   function addTag(tag) {
     if (tag && !formData.value.tags.includes(tag)) {
@@ -133,24 +166,6 @@
     }
     router.push({ name: 'preview' });
   }
-
-  // ─────────────────────────────────────────────
-  // LOCALSTORAGE PERSISTENCE
-  // ─────────────────────────────────────────────
-  watch(
-    formData,
-    (newVal) => {
-      localStorage.setItem('createFormData', JSON.stringify(newVal));
-    },
-    { deep: true },
-  );
-
-  onMounted(() => {
-    const saved = localStorage.getItem('createFormData');
-    if (saved) {
-      formData.value = JSON.parse(saved);
-    }
-  });
 </script>
 
 <template>
@@ -165,6 +180,7 @@
       class="sticky top-0 z-10 flex items-center justify-between px-6 py-3"
       style="background: #0d0d14; border-bottom: 1px solid #7c3aed; box-shadow: 0 0 12px rgba(124, 58, 237, 0.4)"
     >
+      <!-- Logo placeholder — swap for img when mascot ready -->
       <RouterLink to="/">
         <div
           class="flex h-12 w-12 items-center justify-center rounded-lg text-xl font-bold"
@@ -227,11 +243,7 @@
             Create a new tier list
           </h1>
 
-          <!-- ─────────────────────────────────────
-               TOP SECTION
-          ───────────────────────────────────────── -->
           <div class="mb-12 grid grid-cols-3 items-stretch gap-8">
-            <!-- LEFT SIDE: 2/3 width -->
             <div class="col-span-2 flex flex-col gap-6">
               <!-- POST TITLE -->
               <div>
@@ -298,7 +310,7 @@
 
             <!-- RIGHT SIDE -->
             <div class="col-span-1 flex flex-col gap-2">
-              <!-- COVER IMAGE -->
+              <!-- COVER IMAGE URL -->
               <div>
                 <label
                   class="mb-2 block text-sm font-medium"
@@ -319,7 +331,7 @@
                 />
               </div>
 
-              <!-- COVER IMAGE PREVIEW BOX -->
+              <!-- COVER IMAGE PREVIEW BOX-->
               <div
                 class="flex-1 overflow-hidden rounded-lg"
                 style="
@@ -352,6 +364,10 @@
 
           <!-- ─────────────────────────────────────
                TAGS SECTION
+               existingTags is now fetched from the
+               backend so it always reflects current
+               saved posts. Users can also type new
+               custom tags that don't exist yet.
           ───────────────────────────────────────── -->
           <div class="mb-12">
             <h2
@@ -390,7 +406,8 @@
               </button>
             </div>
 
-            <!-- Existing tags as toggleable pills -->
+            <!-- Existing tags as toggleable pills
+                 These now come from the backend fetch in onMounted -->
             <p
               class="mb-3 text-xs"
               style="color: #7c3aed"
@@ -437,6 +454,9 @@
 
           <!-- ─────────────────────────────────────
                TIER LIST BUILDER
+               Each tier has a drag/drop zone and a
+               plus button that opens the add-item modal
+               pre-set to that tier.
           ───────────────────────────────────────── -->
           <div class="mb-8">
             <h2
@@ -639,13 +659,13 @@
         class="text-sm font-medium"
         style="color: #c4b5fd"
       >
-        URate — STC Final Project
+        URate — Final Project
       </p>
       <p
         class="mt-1 text-xs"
         style="color: #7c3aed"
       >
-        Made by Sergio D Morfin
+        Made by Sergio D. Morfin
       </p>
     </footer>
   </div>

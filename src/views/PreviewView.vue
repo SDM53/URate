@@ -17,13 +17,15 @@
     localStorage.getItem('createFormData') ? JSON.parse(localStorage.getItem('createFormData')) : {},
   );
 
+  const isPosting = ref(false);
+
   function starsDisplay(rating) {
     const full = Math.round(rating);
     return '★'.repeat(full) + '☆'.repeat(5 - full);
   }
 
   function getTierItems() {
-    return ['S', 'A', 'B', 'C', 'D', 'F'].filter((tier) => formData.value.tiers[tier]?.length > 0);
+    return ['S', 'A', 'B', 'C', 'D', 'F'].filter((tier) => formData.value.tiers?.[tier]?.length > 0);
   }
 
   function goBack() {
@@ -31,13 +33,33 @@
   }
 
   async function postToFile() {
+    if (isPosting.value) return;
+    isPosting.value = true;
+
     try {
-      console.log('Posting:', formData.value);
+      const res = await fetch('http://localhost:3001/api/posts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData.value),
+      });
+
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.error || 'Server error');
+      }
+
+      const result = await res.json();
+      console.log('Post saved successfully:', result.id);
+
       localStorage.removeItem('createFormData');
-      alert('Post created! Redirecting to home...');
+
+      alert(`Post created! ID: ${result.id}`);
       router.push('/');
-    } catch (error) {
-      alert('Error posting: ' + error.message);
+    } catch (err) {
+      console.error('Error posting:', err);
+      alert('Error saving post: ' + err.message);
+    } finally {
+      isPosting.value = false;
     }
   }
 </script>
@@ -47,11 +69,14 @@
     class="flex min-h-screen flex-col"
     style="background: #0a0a0f"
   >
-    <!-- NAVIGATION BAR -->
+    <!-- ─────────────────────────────────────────
+         NAVIGATION BAR
+    ───────────────────────────────────────────── -->
     <nav
       class="sticky top-0 z-10 flex items-center justify-between px-6 py-3"
       style="background: #0d0d14; border-bottom: 1px solid #7c3aed; box-shadow: 0 0 12px rgba(124, 58, 237, 0.4)"
     >
+      <!-- Logo placeholder, swap for img when mascot ready -->
       <RouterLink to="/">
         <div
           class="flex h-12 w-12 items-center justify-center rounded-lg text-xl font-bold"
@@ -80,7 +105,9 @@
       </RouterLink>
     </nav>
 
-    <!-- GALAXY BACKGROUND WRAPPER -->
+    <!-- ─────────────────────────────────────────
+         GALAXY BACKGROUND WRAPPER
+    ───────────────────────────────────────────── -->
     <div
       class="flex-1"
       style="
@@ -118,7 +145,9 @@
             This is how your post will look
           </p>
 
-          <!-- COVER IMAGE -->
+          <!-- ─────────────────────────────────────
+               COVER IMAGE
+          ───────────────────────────────────────── -->
           <div
             class="mb-6 h-64 overflow-hidden rounded-xl"
             style="border: 1px solid #7c3aed; background: #13131f; box-shadow: 0 0 12px rgba(124, 58, 237, 0.3)"
@@ -151,7 +180,9 @@
             {{ formData.title }}
           </h1>
 
-          <!-- AUTHOR AND TAGS -->
+          <!-- ─────────────────────────────────────
+               AUTHOR AND TAGS
+          ───────────────────────────────────────── -->
           <div
             class="mb-6 pb-6"
             style="border-bottom: 1px solid #7c3aed"
@@ -198,7 +229,7 @@
               class="mb-4 text-xl font-bold"
               style="color: #c4b5fd"
             >
-              Tier List
+              Tier list
             </h2>
 
             <div class="space-y-4">
@@ -223,7 +254,7 @@
                   </span>
                 </div>
 
-                <!-- Tier items row -->
+                <!-- Items row for this tier -->
                 <div
                   class="flex flex-wrap gap-4 rounded-lg p-4"
                   style="background: #13131f; border: 1px solid #7c3aed"
@@ -233,7 +264,7 @@
                     :key="index"
                     class="flex flex-col items-center gap-2"
                   >
-                    <!-- Item image if available -->
+                    <!-- Item image if URL was provided -->
                     <div
                       v-if="item.image"
                       class="h-20 w-20 overflow-hidden rounded-lg"
@@ -245,7 +276,8 @@
                         class="h-full w-full object-cover"
                       />
                     </div>
-                    <!-- Colored placeholder if no image -->
+
+                    <!-- Colored placeholder if no image provided -->
                     <div
                       v-else
                       class="flex h-20 w-20 items-center justify-center rounded-lg p-1 text-center"
@@ -255,6 +287,8 @@
                         {{ item.name }}
                       </span>
                     </div>
+
+                    <!-- Item name label below the box -->
                     <span
                       class="text-center text-xs"
                       style="color: #c4b5fd; max-width: 80px"
@@ -269,8 +303,6 @@
 
           <!-- ─────────────────────────────────────
                ACTION BUTTONS
-               Back: returns to CreateView with all data intact
-               Post: saves to file and redirects to home
           ───────────────────────────────────────── -->
           <div class="mb-8 flex justify-center gap-4">
             <button
@@ -287,22 +319,24 @@
             </button>
             <button
               @click="postToFile"
+              :disabled="isPosting"
               class="rounded-lg px-6 py-3 text-sm font-medium transition-all"
-              style="
-                border: 1px solid #7c3aed;
-                background: rgba(124, 58, 237, 0.3);
-                color: #c4b5fd;
-                box-shadow: 0 0 12px rgba(124, 58, 237, 0.4);
+              :style="
+                isPosting
+                  ? 'border: 1px solid #4c1d95; background: rgba(124, 58, 237, 0.1); color: #6d28d9; cursor: not-allowed;'
+                  : 'border: 1px solid #7c3aed; background: rgba(124, 58, 237, 0.3); color: #c4b5fd; box-shadow: 0 0 12px rgba(124, 58, 237, 0.4);'
               "
             >
-              Post →
+              {{ isPosting ? 'Posting...' : 'Post →' }}
             </button>
           </div>
         </main>
       </div>
     </div>
 
-    <!-- FOOTER -->
+    <!-- ─────────────────────────────────────────
+         FOOTER
+    ───────────────────────────────────────────── -->
     <footer
       class="px-6 py-6 text-center"
       style="background: #0d0d14; border-top: 1px solid #7c3aed; box-shadow: 0 0 12px rgba(124, 58, 237, 0.3)"
@@ -311,13 +345,13 @@
         class="text-sm font-medium"
         style="color: #c4b5fd"
       >
-        URate — STC Final Project
+        URate — Final Project
       </p>
       <p
         class="mt-1 text-xs"
         style="color: #7c3aed"
       >
-        Made by Sergio D Morfin
+        Made by Sergio D. Morfin
       </p>
     </footer>
   </div>

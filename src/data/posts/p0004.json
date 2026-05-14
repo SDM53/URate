@@ -1,0 +1,40 @@
+{
+  "id": "p0004",
+  "title": "Best ice cream flavors",
+  "description": "A definitive ranking of the most iconic ice cream flavors. Opinions are strong. Fights will happen.",
+  "authorName": "Admin",
+  "tags": ["Food", "Ice Cream"],
+  "views": 2100,
+  "rating": 4.3,
+  "ratingCount": 55,
+  "ratingTotal": 236,
+  "coverImage": "https://portsoyicecream.co.uk/site/wp-content/uploads/ice-1554x1171.jpg",
+  "tiers": {
+    "S": [
+      { "name": "Vanilla", "image": null },
+      { "name": "Cookies & cream", "image": null }
+    ],
+    "A": [
+      { "name": "Coffee", "image": null },
+      { "name": "Strawberry", "image": null }
+    ],
+    "B": [
+      { "name": "Chocolate", "image": null },
+      { "name": "Rocky Road", "image": null }
+    ],
+    "C": [{ "name": "Pistachio", "image": null }],
+    "D": [{ "name": "Bubblegum", "image": null }],
+    "F": [{ "name": "Rum raisin", "image": null }]
+  },
+  "comments": [
+    {
+      "id": "c0001",
+      "authorName": "IceCreamConnoisseur",
+      "text": "Rum raisin in F tier is the most correct thing I have ever seen on the internet. Whoever invented that flavor owes everyone an apology. Mint choc chip should be S though, not just tied with cookies and cream.",
+      "likes": 0,
+      "dislikes": 0,
+      "createdAt": "2024-01-08T16:45:00.000Z"
+    }
+  ],
+  "createdAt": "2024-01-04T00:00:00.000Z"
+}

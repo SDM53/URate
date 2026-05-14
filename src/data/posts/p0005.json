@@ -1,0 +1,64 @@
+{
+  "id": "p0005",
+  "title": "Ranking Shells in Marathon",
+  "description": "What are the most meta shells in marathon based on movement, play style, versatility, and popularity.",
+  "authorName": "Sergio M.",
+  "tags": ["Marathon", "FPS", "Gaming", "Extraction Shooter"],
+  "views": 1200,
+  "rating": 5.0,
+  "ratingCount": 69,
+  "ratingTotal": 345,
+  "coverImage": "https://imgur.com/Foef2ie.png",
+  "tiers": {
+    "S": [
+      {
+        "name": "Recon",
+        "image": "https://imgur.com/9UUzcqa.png"
+      },
+      {
+        "name": "Assassin",
+        "image": "https://imgur.com/iHzSajs.png"
+      },
+      {
+        "name": "Triage",
+        "image": "https://imgur.com/ijEQ9dV.png"
+      }
+    ],
+    "A": [
+      {
+        "name": "Vandal",
+        "image": "https://imgur.com/rNGDFvs.png"
+      }
+    ],
+    "B": [
+      {
+        "name": "Thief",
+        "image": "https://imgur.com/BcZVIMC.png"
+      }
+    ],
+    "C": [
+      {
+        "name": "Destroyer",
+        "image": "https://imgur.com/rSwSOJQ.png"
+      }
+    ],
+    "D": [
+      {
+        "name": "Rook",
+        "image": "https://imgur.com/1IvLhUA.png"
+      }
+    ],
+    "F": []
+  },
+  "comments": [
+    {
+      "id": "c0001",
+      "authorName": "Rook_0004",
+      "text": "This post is biased against Rooks!",
+      "likes": 0,
+      "dislikes": 1,
+      "createdAt": "2026-05-13T23:31:28.228Z"
+    }
+  ],
+  "createdAt": "2026-05-13T23:30:35.019Z"
+}

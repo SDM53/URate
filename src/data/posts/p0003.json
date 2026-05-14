@@ -1,0 +1,45 @@
+{
+  "id": "p0003",
+  "title": "Best Call of Duty Zombies maps",
+  "description": "Classic and modern zombies maps ranked on atmosphere, easter eggs, layout, and replayability.",
+  "authorName": "Admin",
+  "tags": ["Gaming", "Call of Duty", "FPS"],
+  "views": 2999,
+  "rating": 4.4,
+  "ratingCount": 115,
+  "ratingTotal": 300,
+  "coverImage": "https://i.ytimg.com/vi/1Bo-Vt5Dopw/maxresdefault.jpg",
+  "tiers": {
+    "S": [
+      { "name": "Tranzit", "image": null },
+      { "name": "Mob of the Dead", "image": null }
+    ],
+    "A": [
+      { "name": "Kino der Toten", "image": null },
+      { "name": "Der Eisendrache", "image": null }
+    ],
+    "B": [{ "name": "Shadows of Evil", "image": null }],
+    "C": [{ "name": "Buried", "image": null }],
+    "D": [{ "name": "Five", "image": null }],
+    "F": []
+  },
+  "comments": [
+    {
+      "id": "c0001",
+      "authorName": "ZombieSlayer115",
+      "text": "Mob of the Dead is the greatest zombies map ever made and I will die on that hill. The atmosphere, the story, the easter egg...nothing comes close. Tranzit though? That belongs in F tier.",
+      "likes": 0,
+      "dislikes": 0,
+      "createdAt": "2024-01-07T09:15:00.000Z"
+    },
+    {
+      "id": "c0002",
+      "authorName": "TankDempsey",
+      "text": "WHERE ARE THE REST OF THE MAPS?! This ranking is a joke. How do you not have Ascension or Moon in S tier? And no love for Call of the Dead either? This list is incomplete and biased.",
+      "likes": 0,
+      "dislikes": 0,
+      "createdAt": "2024-01-07T09:15:00.000Z"
+    }
+  ],
+  "createdAt": "2024-01-03T00:00:00.000Z"
+}

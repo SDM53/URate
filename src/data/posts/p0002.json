@@ -1,0 +1,63 @@
+{
+  "id": "p0002",
+  "title": "Best Genshin Impact regions",
+  "description": "All regions judged on exploration design, soundtrack, world quests, and overall atmosphere.",
+  "authorName": "Admin",
+  "tags": ["Gaming", "Genshin Impact", "Open World"],
+  "views": 3100,
+  "rating": 4.5,
+  "ratingCount": 68,
+  "ratingTotal": 306,
+  "coverImage": "https://imgeucdn.gamespress.com/cdn/files/Games%20Press/2020/08/06091349-87c79feb-fac4-41b2-808d-b906bd5fa00e/Genshin_Impact_Key_Art-EN.jpg?w=533&mode=max&otf=y&quality=90&format=jpg&bgcolor=white&sky=65a18af47f220d9cba821024e39563d06979085461bfd961631afbbded094263",
+  "tiers": {
+    "S": [
+      {
+        "name": "Fontaine",
+        "image": "https://imgur.com/NJji0i0.png"
+      },
+      {
+        "name": "Mondstadt",
+        "image": "https://imgur.com/yDsWAIz.png"
+      }
+    ],
+    "A": [
+      {
+        "name": "Nod Krai",
+        "image": "https://imgur.com/t65rLL9.png"
+      },
+      {
+        "name": "Sumeru",
+        "image": "https://imgur.com/zBDx2YS.png"
+      },
+      {
+        "name": "Liyue",
+        "image": "https://imgur.com/6ptCvcP.png"
+      }
+    ],
+    "B": [
+      {
+        "name": "Natlan",
+        "image": "https://imgur.com/ef2VfQl.png"
+      }
+    ],
+    "C": [
+      {
+        "name": "Inazuma",
+        "image": "https://imgur.com/AqDf5oF.png"
+      }
+    ],
+    "D": [],
+    "F": []
+  },
+  "comments": [
+    {
+      "id": "c0001",
+      "authorName": "TheRealVenti",
+      "text": "Fontaine in S tier is absolutely correct. The water mechanics alone make it the most creative region they have ever designed. Mondstadt being S is a bit of nostalgia bias though.",
+      "likes": 1,
+      "dislikes": 0,
+      "createdAt": "2024-01-06T14:30:00.000Z"
+    }
+  ],
+  "createdAt": "2024-01-02T00:00:00.000Z"
+}
