@@ -43,7 +43,7 @@
 
   onMounted(async () => {
     try {
-      const res = await fetch('http://localhost:3001/api/posts');
+      const res = await fetch('https://urate.onrender.com/api/posts');
       const posts = await res.json();
       const tagSet = new Set();
       posts.forEach((post) => post.tags.forEach((t) => tagSet.add(t)));
@@ -191,7 +191,7 @@
             box-shadow: 0 0 12px rgba(124, 58, 237, 0.4);
           "
         >
-          U
+          URate
         </div>
       </RouterLink>
       <RouterLink

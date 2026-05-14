@@ -30,7 +30,7 @@
 
   onMounted(async () => {
     try {
-      const res = await fetch(`http://localhost:3001/api/posts/${route.params.id}`);
+      const res = await fetch(`https://urate.onrender.com/api/posts/${route.params.id}`);
       if (!res.ok) throw new Error('Post not found');
       post.value = await res.json();
 
@@ -77,7 +77,7 @@
     ratingSubmitting.value = true;
 
     try {
-      const res = await fetch(`http://localhost:3001/api/posts/${route.params.id}/rate`, {
+      const res = await fetch(`https://urate.onrender.com/api/posts/${route.params.id}/rate`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ stars }),
@@ -110,7 +110,7 @@
     commentSubmitting.value = true;
 
     try {
-      const res = await fetch(`http://localhost:3001/api/posts/${route.params.id}/comments`, {
+      const res = await fetch(`https://urate.onrender.com/api/posts/${route.params.id}/comments`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -137,7 +137,7 @@
     if (localStorage.getItem(key)) return;
 
     try {
-      const res = await fetch(`http://localhost:3001/api/posts/${route.params.id}/comments/${comment.id}/like`, {
+      const res = await fetch(`https://urate.onrender.com/api/posts/${route.params.id}/comments/${comment.id}/like`, {
         method: 'POST',
       });
       if (!res.ok) throw new Error('Failed to like comment');
@@ -154,9 +154,12 @@
     if (localStorage.getItem(key)) return;
 
     try {
-      const res = await fetch(`http://localhost:3001/api/posts/${route.params.id}/comments/${comment.id}/dislike`, {
-        method: 'POST',
-      });
+      const res = await fetch(
+        `https://urate.onrender.com/api/posts/${route.params.id}/comments/${comment.id}/dislike`,
+        {
+          method: 'POST',
+        },
+      );
       if (!res.ok) throw new Error('Failed to dislike comment');
       const result = await res.json();
       comment.dislikes = result.dislikes;
@@ -189,7 +192,7 @@
             box-shadow: 0 0 12px rgba(124, 58, 237, 0.4);
           "
         >
-          U
+          URate
         </div>
       </RouterLink>
       <div class="flex items-center gap-4">

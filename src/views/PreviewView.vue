@@ -37,7 +37,7 @@
     isPosting.value = true;
 
     try {
-      const res = await fetch('http://localhost:3001/api/posts', {
+      const res = await fetch('https://urate.onrender.com/api/posts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData.value),
@@ -87,7 +87,7 @@
             box-shadow: 0 0 12px rgba(124, 58, 237, 0.4);
           "
         >
-          U
+          URate
         </div>
       </RouterLink>
       <div

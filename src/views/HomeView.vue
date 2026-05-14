@@ -57,7 +57,7 @@
 
   onMounted(async () => {
     try {
-      const res = await fetch('http://localhost:3001/api/posts');
+      const res = await fetch('https://urate.onrender.com/api/posts');
       posts.value = await res.json();
     } catch (err) {
       console.error('Failed to load posts from backend:', err);
@@ -178,7 +178,7 @@
               box-shadow: 0 0 12px rgba(124, 58, 237, 0.4);
             "
           >
-            U
+            URate
           </div>
         </RouterLink>
         <div class="flex items-center gap-4">
